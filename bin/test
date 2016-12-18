@@ -6,11 +6,12 @@ require "very_good"
 require "pry"
 require "pry-stack_explorer"
 
-VeryGood.start!
+VeryGood.start do |terminal|
+  state = terminal.state
 
-state = VeryGood.state
+  newState = state.set(0, 0, VeryGood::Cell.new("x", color: VeryGood::COLORS[:blue]))
 
-newState = state.set(0, 0, VeryGood::Cell.new("x", color: VeryGood::COLORS[:blue]))
-
-VeryGood.state = newState
-VeryGood.update!
+  terminal.state = newState
+  terminal.update!
+  sleep 2
+end
