@@ -9,7 +9,10 @@ module VeryGood
     def start
       save_tty
       setup_tty
-      terminal = VeryGood::Terminal.new
+      terminal = VeryGood::Terminal.new(
+        width: command("tput cols").strip.to_i,
+        height: command("tput lines").strip.to_i
+      )
       terminal.clear!
       terminal.move_cursor(0, 0)
       yield terminal

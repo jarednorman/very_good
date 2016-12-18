@@ -1,7 +1,7 @@
 module VeryGood
   class Terminal
-    def initialize
-      @state = State.new
+    def initialize(width:, height:)
+      @state = State.new(width: width, height: height)
     end
 
     def state
