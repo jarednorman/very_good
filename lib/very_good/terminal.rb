@@ -15,12 +15,14 @@ module VeryGood
     def update!
       clear!
       move_cursor(0, 0)
+
       state.lines.each do |line|
         line.each do |cell|
           output.write(cell.char)
         end
       end
-      move_cursor(0, 0)
+
+      move_cursor(state.cursor.x, state.cursor.y)
     end
 
     def clear!

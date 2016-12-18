@@ -3,6 +3,7 @@ require "very_good/cell"
 require "very_good/state"
 require "very_good/terminal"
 require "very_good/ansi"
+require "very_good/cursor"
 
 module VeryGood
   class << self

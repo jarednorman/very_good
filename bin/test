@@ -16,7 +16,8 @@ VeryGood.start do |terminal|
     set(1, 0, VeryGood::Cell.new("a", colour: VeryGood::Ansi::BLUE)).
     set(2, 0, VeryGood::Cell.new("r", colour: VeryGood::Ansi::BLUE)).
     set(3, 0, VeryGood::Cell.new("E", colour: VeryGood::Ansi::BLUE)).
-    set(4, 0, VeryGood::Cell.new("d", colour: VeryGood::Ansi::BLUE))
+    set(4, 0, VeryGood::Cell.new("d", colour: VeryGood::Ansi::BLUE)).
+    set_cursor(VeryGood::Cursor.new(6, 0))
 
   terminal.state = newState
 

@@ -1,12 +1,13 @@
 module VeryGood
   class State
-    def initialize(width:, height:, state: nil)
+    def initialize(width:, height:, state: nil, cursor: Cursor.new(0, 0))
       @width = width
       @height = height
       @state = state || clean_state
+      @cursor = cursor
     end
 
-    attr_reader :width, :height
+    attr_reader :width, :height, :cursor
 
     def set(x, y, cell)
       new_state = @state.map do |line|
@@ -18,7 +19,17 @@ module VeryGood
       State.new(
         width: width,
         height: height,
-        state: new_state
+        state: new_state,
+        cursor: cursor
+      )
+    end
+
+    def set_cursor(new_cursor)
+      State.new(
+        width: width,
+        height: height,
+        state: @state,
+        cursor: new_cursor
       )
     end
 
