@@ -1,6 +1,6 @@
 module VeryGood
   class Cell
-    def initialize(char, color: nil)
+    def initialize(char, colour: nil)
     end
   end
 end

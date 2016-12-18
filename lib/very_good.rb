@@ -2,17 +2,17 @@ require "very_good/version"
 require "very_good/cell"
 require "very_good/state"
 require "very_good/terminal"
+require "very_good/ansi"
 
 module VeryGood
-  COLORS = {
-    blue: nil
-  }.freeze
-
   class << self
     def start
       save_tty
       setup_tty
-      yield VeryGood::Terminal.new
+      terminal = VeryGood::Terminal.new
+      terminal.clear!
+      terminal.move_cursor(0, 0)
+      yield terminal
     ensure
       restore_tty
     end
