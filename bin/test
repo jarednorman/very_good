@@ -7,11 +7,19 @@ require "pry"
 require "pry-stack_explorer"
 
 VeryGood.start do |terminal|
+  terminal.update!
+
   state = terminal.state
+  newState =
+    state.
+    set(0, 0, VeryGood::Cell.new("J", colour: VeryGood::Ansi::BLUE)).
+    set(1, 0, VeryGood::Cell.new("a", colour: VeryGood::Ansi::BLUE)).
+    set(2, 0, VeryGood::Cell.new("r", colour: VeryGood::Ansi::BLUE)).
+    set(3, 0, VeryGood::Cell.new("E", colour: VeryGood::Ansi::BLUE)).
+    set(4, 0, VeryGood::Cell.new("d", colour: VeryGood::Ansi::BLUE))
 
-  # newState = state.set(0, 0, VeryGood::Cell.new("x", colour: VeryGood::Ansi::BLUE))
+  terminal.state = newState
 
-  # terminal.state = newState
   terminal.update!
   sleep 2
 end

@@ -9,6 +9,17 @@ module VeryGood
     attr_reader :width, :height
 
     def set(x, y, cell)
+      new_state = @state.map do |line|
+        line.dup
+      end
+
+      new_state[y][x] = cell
+
+      State.new(
+        width: width,
+        height: height,
+        state: new_state
+      )
     end
 
     def lines
@@ -19,7 +30,7 @@ module VeryGood
 
     def clean_state
       (0..(@height - 1)).map do |x|
-        (0..(@width - 1)).map { |y| Cell.new((y % 10).to_s) }
+        (0..(@width - 1)).map { Cell.new(' ') }
       end
     end
   end
