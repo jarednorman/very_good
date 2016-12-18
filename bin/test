@@ -9,9 +9,9 @@ require "pry-stack_explorer"
 VeryGood.start do |terminal|
   state = terminal.state
 
-  newState = state.set(0, 0, VeryGood::Cell.new("x", colour: VeryGood::Ansi::BLUE))
+  # newState = state.set(0, 0, VeryGood::Cell.new("x", colour: VeryGood::Ansi::BLUE))
 
-  terminal.state = newState
+  # terminal.state = newState
   terminal.update!
   sleep 2
 end

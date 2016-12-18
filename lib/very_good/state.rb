@@ -11,11 +11,15 @@ module VeryGood
     def set(x, y, cell)
     end
 
+    def lines
+      @state
+    end
+
     private
 
     def clean_state
-      (0..@width).map do |x|
-        [Cell.new(" ")] * @height
+      (0..(@height - 1)).map do |x|
+        (0..(@width - 1)).map { |y| Cell.new((y % 10).to_s) }
       end
     end
   end

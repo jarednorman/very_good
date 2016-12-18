@@ -13,6 +13,12 @@ module VeryGood
     end
 
     def update!
+      move_cursor(0, 0)
+      state.lines.each do |line|
+        line.each do |cell|
+          output.write(cell.char)
+        end
+      end
     end
 
     def clear!
